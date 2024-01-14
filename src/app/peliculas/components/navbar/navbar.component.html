@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm border-bottom border-danger-subtle p-2">
+    
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">PELÍCULAS {{ moviesDate | date:'yyyy' }} 🎥</a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+
+            <div class="d-flex py-2">
+                <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Buscar película..."
+                    aria-label="Search"
+                >
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+</nav>
