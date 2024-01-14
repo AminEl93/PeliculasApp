@@ -1,0 +1,23 @@
+<div class="swiper-container">    
+    
+    <div class="swiper-wrapper">
+        
+        <!-- Cartelera con las últimas películas -->
+        <div class="swiper-slide" *ngFor="let movie of movies"
+            [ngStyle]="{
+                'background-image': 'url(https://image.tmdb.org/t/p/original'+ movie.backdrop_path +')'
+            }"
+        >            
+            <div class="movie-description">
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.overview | slice:0:150 }}...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Botones de navegación -->
+    <div class="swiper-button-prev" (click)="onSlidePrev()"></div>
+    <div class="swiper-button-next" (click)="onSlideNext()"></div>
+
+</div>
