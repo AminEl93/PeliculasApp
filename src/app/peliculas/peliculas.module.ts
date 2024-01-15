@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
@@ -29,6 +30,7 @@ import { PipesModule } from './pipes/pipes.module';
     imports: [
         CommonModule,
         RouterModule,
+        NgbModule,
         PipesModule
     ]
 })
