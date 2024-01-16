@@ -10,22 +10,26 @@
             <!-- Título de la película -->
             <h3>{{ movie.title }}</h3>
 
-            <!-- Calificación por estrellas -->
-            <ng-template #t let-fill="fill">
-                <span class="star" [class.border-star]="fill === 100">
-                    <span class="fill-star" [style.width.%]="fill">&#9733;</span>&#9733;
-                </span>
-            </ng-template>
-            <ngb-rating
-                [(rate)]= "movie.vote_average"
-                [starTemplate]="t"
-                [readonly]="true"
-                [max]="10"
-            >
-            </ngb-rating>
+            <div class="row">
+                <!-- Calificación por estrellas -->
+                <div class="col-9">                    
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.border-star]="fill === 100">
+                            <span class="fill-star" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                    <ngb-rating
+                        [(rate)]= "movie.vote_average"
+                        [starTemplate]="t"
+                        [readonly]="true"
+                        [max]="10"
+                    >
+                    </ngb-rating>
+                </div>
 
-            <!-- Valoración -->
-            <div class="text-white">Valoración = {{ movie.vote_average | number:'1.1-2' }}</div>  
+                <!-- Valoración -->
+                <div class="col-3 text-white">{{ movie.vote_average | number:'1.1-2' }}</div>  
+            </div> 
         </div>
 
     </div>
