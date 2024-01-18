@@ -26,6 +26,11 @@ export class PeliculasService {
         }
     }
 
+    // Resetear la cartelera de películas original
+    resetCarteleraPage() {
+        this.carteleraPage = 1;
+    }
+
     // Obtener la cartelera de todas las películas actuales
     getCartelera(): Observable<Movie[]> {
         if (this.cargando) return of([]); // Cargando las películas
@@ -40,5 +45,12 @@ export class PeliculasService {
                     this.cargando = false;
                })
            );
-    }    
+    }
+    
+    // Buscar las últimas películas
+    buscarPeliculas(text: string): Observable<Movie[]> {
+        const params = { ...this.params, page: '1', query: text };    
+        return this._http.get<CarteleraResponse>(`${this.baseUrl}/search/movie`, { params })
+            .pipe( map(resp => resp.results) )    
+    }
 }

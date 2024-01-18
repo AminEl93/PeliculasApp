@@ -1,1 +1,15 @@
-<p>search works!</p>
+<h3 class="my-4 ms-3" *ngIf="movies.length > 0; else emptyMovies">
+    Resultados de : <b class="text-capitalize">{{ text }}</b>
+</h3>
+
+<ng-template #emptyMovies>
+    <h3 class="mt-5 text-center">
+        No hay películas que coincidan con la búsqueda, vuelve a intentarlo!
+    </h3>
+</ng-template>
+
+<div class="row">
+    <div class="col">
+        <app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
+    </div>
+</div>
