@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, of, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
 
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
-import { environment } from 'src/environments/environment';
+import { MovieResponse } from '../interfaces/movie-response';
 
 @Injectable({
     providedIn: 'root'
@@ -52,5 +54,11 @@ export class PeliculasService {
         const params = { ...this.params, page: '1', query: text };    
         return this._http.get<CarteleraResponse>(`${this.baseUrl}/search/movie`, { params })
             .pipe( map(resp => resp.results) )    
+    }
+
+    // Obtener el detalle de cada película con su información respectiva
+    getPeliculaDetalle(id: string) {
+        return this._http.get<MovieResponse>(`${this.baseUrl}/movie/${id}`, { params: this.params })
+            .pipe( catchError(err => of(null)) );
     }
 }
