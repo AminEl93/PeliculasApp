@@ -24,7 +24,7 @@ export class PeliculasService {
         return {
             api_key: environment.api_key,
             language: 'es-ES',
-            page: this.carteleraPage.toString()
+            page: this.carteleraPage.toString() 
         }
     }
 

@@ -33,3 +33,21 @@ hr {
 .block {
     display:block;
 }
+
+/* Calificación por estrellas */
+.star {
+    position: relative;
+    display: inline-block;
+    color: #d3d3d3;
+}
+
+.border-star {
+    color: yellow;
+}
+
+.fill-star {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: yellow;
+}

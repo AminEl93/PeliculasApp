@@ -1,1 +1,47 @@
-<p>pelicula works!</p>
+<div class="row animate__animated animate__fadeIn animate__faster text-white" *ngIf="pelicula">
+    
+    <!-- Imagen -->
+    <div class="col-md-4">
+        <img class="img-thumbnail" [src]="pelicula.poster_path | poster" [alt]="pelicula.title">
+    </div>
+
+    <div class="col-md-8">
+        <!-- Título -->
+        <div class="my-4">Título: <b>{{ pelicula.title }}</b></div>
+        
+        <!-- Descripción -->
+        <div class="row overview">
+            <div class="col-9"> Sinopsis: <b>{{ pelicula.overview }}</b></div>
+        </div>
+        
+        <!-- Valoración -->
+        <div class="my-4">
+            Valoración: <b>{{ pelicula.vote_average | number:'1.1-2' }}</b>
+        </div>
+
+        <!-- Calificación por estrellas -->               
+        <div>
+            Calificación por estrellas:               
+            <ng-template #t let-fill="fill">
+                <span class="star" [class.border-star]="fill === 100">
+                    <span class="fill-star" [style.width.%]="fill">&#9733;</span>&#9733;
+                </span>
+            </ng-template>
+            <ngb-rating
+                [(rate)]= "pelicula.vote_average"
+                [starTemplate]="t"
+                [readonly]="true"
+                [max]="10"
+            >
+            </ngb-rating>
+        </div>
+      
+        <div class="row mt-5">
+            <div class="col">
+                <button class="btn btn-info" (click)="goBack()">Atrás</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
