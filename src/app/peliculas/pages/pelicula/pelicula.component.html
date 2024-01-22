@@ -1,11 +1,11 @@
-<div class="row animate__animated animate__fadeIn animate__faster text-white" *ngIf="pelicula">
+<div class="row text-white" *ngIf="pelicula">
     
     <!-- Imagen -->
-    <div class="col-md-5">
+    <div class="col-md-5 animate__animated animate__fadeInLeft">
         <img class="img-thumbnail" [src]="pelicula.poster_path | poster" [alt]="pelicula.title">
     </div>
 
-    <div class="col-md-7">
+    <div class="col-md-7 animate__animated animate__fadeInRight">
         <!-- Título -->
         <div class="my-4">Título: <b>{{ pelicula.title }}</b></div>
         
@@ -46,7 +46,7 @@
 </div>
 
 <!-- Reparto de actores y actrices --> 
-<div class="row mb-4" *ngIf="cast.length > 0">
+<div class="row mb-4 animate__animated animate__fadeInUp" *ngIf="cast.length > 0">
     <h4 class="mt-5 mb-3">Reparto</h4>
     <div class="col">
         <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
