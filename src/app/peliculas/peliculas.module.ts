@@ -9,6 +9,7 @@ import { PeliculasPosterGridComponent } from './components/peliculas-poster-grid
 
 import { HomeComponent } from './pages/home/home.component';
 import { PeliculaComponent } from './pages/pelicula/pelicula.component';
+import { CastSlideshowComponent } from './components/cast-slideshow/cast-slideshow.component';
 import { SearchComponent } from './pages/search/search.component';
 
 import { PipesModule } from './pipes/pipes.module';
@@ -20,7 +21,8 @@ import { PipesModule } from './pipes/pipes.module';
         PeliculasPosterGridComponent,
         HomeComponent,
         PeliculaComponent,
-        SearchComponent        
+        SearchComponent,
+        CastSlideshowComponent        
     ],
     exports: [
         NavbarComponent,

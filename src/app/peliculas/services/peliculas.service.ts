@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { MovieResponse } from '../interfaces/movie-response';
+import { CreditsReponse, Cast } from '../interfaces/credits-response';
 
 @Injectable({
     providedIn: 'root'
@@ -60,5 +61,15 @@ export class PeliculasService {
     getPeliculaDetalle(id: string) {
         return this._http.get<MovieResponse>(`${this.baseUrl}/movie/${id}`, { params: this.params })
             .pipe( catchError(err => of(null)) );
+    }
+
+    // Obtener el reparto de actores/actrices de cada película
+    getCast(id: string): Observable<Cast[]> {
+        return this._http.get<CreditsReponse>(`${this.baseUrl}/movie/${id}/credits`, {
+            params: this.params
+        }).pipe(
+            map( resp => resp.cast ),
+            catchError( err => of([]) )
+        );    
     }
 }

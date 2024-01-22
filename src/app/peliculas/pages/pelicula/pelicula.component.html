@@ -1,17 +1,17 @@
 <div class="row animate__animated animate__fadeIn animate__faster text-white" *ngIf="pelicula">
     
     <!-- Imagen -->
-    <div class="col-md-4">
+    <div class="col-md-5">
         <img class="img-thumbnail" [src]="pelicula.poster_path | poster" [alt]="pelicula.title">
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-7">
         <!-- Título -->
         <div class="my-4">Título: <b>{{ pelicula.title }}</b></div>
         
         <!-- Descripción -->
         <div class="row overview">
-            <div class="col-9"> Sinopsis: <b>{{ pelicula.overview }}</b></div>
+            <div class="col-10"> Sinopsis: <b>{{ pelicula.overview }}</b></div>
         </div>
         
         <!-- Valoración -->
@@ -43,5 +43,13 @@
         </div>
     </div>
 
+</div>
+
+<!-- Reparto de actores y actrices --> 
+<div class="row mb-4" *ngIf="cast.length > 0">
+    <h4 class="mt-5 mb-3">Reparto</h4>
+    <div class="col">
+        <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
+    </div>
 </div>
 
