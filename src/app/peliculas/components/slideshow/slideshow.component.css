@@ -1,6 +1,7 @@
 .swiper-container {
     width: 100%;
     height: 400px;
+    overflow-x: hidden;
 }
 
 .swiper-button-prev, .swiper-button-next {
